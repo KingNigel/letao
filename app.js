@@ -8,6 +8,7 @@ var session = require('express-session');
 var user = require('./routes/user');
 var product = require('./routes/product');
 var category = require('./routes/category');
+var address = require('./routes/address');
 var app = express();
 
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -29,7 +30,7 @@ app.use('/user', user);
 app.use('/product', product);
 app.use('/category', category);
 app.use('/cart', cart);
-
+app.use('/address', address);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
