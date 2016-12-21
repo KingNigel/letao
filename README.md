@@ -5,7 +5,7 @@
 
 ###用户模块
 
-- [注册接口](#register)
+- [注册接口](#register 注册接口)
 - [登录接口](#login)
 - [登出接口](#logout)
 - [修改密码](#updatepassword)
