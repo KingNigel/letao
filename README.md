@@ -65,7 +65,7 @@
 
 ##接口描述信息
 ### 用户模块
-### register
+### register 注册接口
 + 接口地址
 
    /user/register
