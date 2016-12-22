@@ -63,7 +63,7 @@ Product.queryProductDetail = function (id, callback) {
 		if (err) {
 			return callback(err);
 		}
-		var data = result;
+		var data = result[0];
 		callback(err, data);
 	});
 };

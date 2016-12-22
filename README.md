@@ -250,7 +250,19 @@ id |是|产品id
 + 示例
 
 ```javascript
-{data}
+{
+  "id": 1,
+  "proName": "羽绒服",
+  "oldPrice": 998,
+  "price": 600,
+  "pic": "/pic/1.jpg",
+  "proDesc": null,
+  "size": "170-195",
+  "statu": 1,
+  "updateTime": "2012-12-01T04:05:23.000Z",
+  "num": 1,
+  "brandId": 1
+}
 ```
 ### 分类模块
 ### 一级分类查询 queryTopCategory
