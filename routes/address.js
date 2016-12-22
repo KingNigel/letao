@@ -53,3 +53,6 @@ router.get("/queryAddressTree", function (req, res) {
     ]);
 
 });
+
+
+module.exports = router;

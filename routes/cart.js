@@ -38,3 +38,6 @@ router.get("/queryCart", function (req, res) {
     res.send(data);
   })
 });
+
+
+module.exports = router;

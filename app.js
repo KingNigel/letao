@@ -8,6 +8,7 @@ var session = require('express-session');
 var user = require('./routes/user');
 var product = require('./routes/product');
 var category = require('./routes/category');
+var cart = require('./routes/cart');
 var address = require('./routes/address');
 var app = express();
 

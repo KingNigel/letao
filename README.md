@@ -1,11 +1,11 @@
 # 乐淘商城接口文档
 ## 测试地址
 
-## 商城前台接口汇总
+# 商城前台接口汇总
 
 ###用户模块
 
-- [注册接口][#register]
+- [注册接口](#register)
 - [登录接口](#login)
 - [登出接口](#logout)
 - [修改密码](#updatepassword)
@@ -63,154 +63,169 @@
 - [品牌销量比较]()  写死
 - [某产品按时间的销量图]()    写死
 
-##接口描述信息
-### 用户模块
-### [register 注册接口][register]
+#网站前台接口描述信息
+## 用户模块
+### register 
++ 接口名称
+  注册接口
 + 接口地址
-
-   /user/register
-
+  /user/register
 + 请求方式
-    
-    post
-    
+    POST
 + 参数说明
-
 参数名称|是否必须|说明
-
 --|--|--
-
 username|是|用户名
-
 password|是|用户密码
-
 mobile|是|用户手机号
-
++ 示例
+```javascript
+{"username":"zhoushugang","password","123456","mobile":"15111111111"}
+```
 + 返回说明
-
 参数|说明
 --|--
-success|返回状态
-
+success|注册成功
+error|操作失败
 + 示例
-
 ```javascript
 {"success":true}
+{ "error": 403, "message": "用户名未填写！" }
+{ "error": 403, "message": "密码未填写！" }
+{ "error": 403, "message": "用户名已经存在!!!" }
+{ "error": 403, "message": "手机号已注册过!!!" }
+{ "error": 403, "message": "数据库异常！" }
 ```
 
-### 登录接口 login
+### login
++ 接口名称
+  登录接口
 + 接口地址
-
    /user/login
-
 + 请求方式
-    
-    post
-    
+    POST
 + 参数说明
-
 参数名称|是否必须|说明
---      |--|--
+--|--|--
 username|是|用户名
 password|是|用户密码
-
++ 示例
+```javascript
+{"username":"zhoushugang","password","123456"}
+```
 + 返回说明
-
 参数|说明
 --|--
 success|注册状态
-
+error|操作失败
 + 示例
-
 ```javascript
+//success
 {"success":true}
+//error 同上个接口
 ```
 
-### 登出接口 logout
+### logout
++ 接口名称
+  登出接口
 + 接口地址
-
-   /user/logout
-
+  /user/logout
 + 请求方式
-    
-    get
-    
+  GET
 + 参数说明
-
-参数名称|是否必须|说明
--- |--|--
-
+  无
 + 返回说明
-
 参数|说明
 --|--
 success|注册状态
-
+error|操作失败
 + 示例
-
 ```javascript
+//success
 {"success":true}
+//error 同上个接口
 ```
 
-### 修改密码 updatePassword
+### updatePassword
++ 接口名称
+  修改密码
 + 接口地址
-
-   /user/updatePassword
-
+  /user/updatePassword
 + 请求方式
-    
-    post
-    
+  POST
 + 参数说明
-
 参数名称|是否必须|说明
---      |--|--
-password|是|用户密码
+--|--|--
+oldPassword|是|用户密码
+newPassword|是|用户密码
 + 示例
 
 ```javascript
-{"id":1,"password":"123456"}
+{"oldPassword":"123456","newPassword":"456789"}
 ```
 + 返回说明
-
 参数|说明
 --|--
 success|注册状态
-
+error|操作失败
 + 示例
-
 ```javascript
+//success
 {"success":true}
+//error 同上个接口
 ```
+
 ### 产品模块
 
-### 搜索产品 queryProduct
+### queryProduct
++ 接口名称
+  搜索产品
 + 接口地址
-
-   /product/queryProduct
-
+  /product/queryProduct
 + 请求方式
-
-  get
-    
+  GET
 + 参数说明
-
 参数名称|是否必须|说明
---      |--|--
-proName |是|产品名称
+--|--|--
+proName |否|产品名称
+brandId |否|pin
 price   |否|使用价格排序（1升序，2降序）
 num     |否|产品库存排序（1升序，2降序）
 page    |是|第几页
 pageSize|是|每页的条数
-
 + 返回说明
-
 参数|说明
 --|--
 + 示例
-
 ```javascript
-[{data},{data}]
+{
+  "page": "1",
+  "size": "3",
+  "count": 4,
+  "data": [
+    {
+      "id": 1,
+      "proName": "羽绒服",
+      "price": 600,
+      "pic": "/pic/1.jpg",
+      "num": 1
+    },
+    {
+      "id": 2,
+      "proName": "羽绒服",
+      "price": 599,
+      "pic": "非常厚实~~~漂漂亮亮~~~",
+      "num": 2
+    },
+    {
+      "id": 3,
+      "proName": "羽绒服",
+      "price": 499,
+      "pic": "非常厚实~~~漂漂亮亮~~~",
+      "num": 3
+    }
+  ]
+}
 ```
 
 ### 产品详情 queryProductDetail

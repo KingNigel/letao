@@ -8,14 +8,23 @@ function User(user) {
 	this.mobile = user.mobile;
 	this.isDelete=user.isDelete;
 };
-
+User.getUserById = function (id, callback) {
+	var selectSql = 'select * from user where id = ?';
+	db.query(selectSql, [id], function (err, result) {
+		if (err) {
+			return callback(err);
+		}
+		var data=result[0];
+		callback(err, data);
+	});
+};
 User.getUserByName = function (username, callback) {
 	var selectSql = 'select * from user where username = ?';
 	db.query(selectSql, [username], function (err, result) {
 		if (err) {
 			return callback(err);
 		}
-		var data=result;
+		var data=result[0];
 		callback(err, data);
 	});
 };
@@ -30,19 +39,21 @@ User.getUserByMobile = function (mobile, callback) {
 	});
 };
 User.addUser= function (user, callback) {
-	//var id=uuid.v1();
 	var selectSql = 'insert into user (id,username,password,mobile,isDelete)  values (null,?,?,?,?)';
-
 	db.query(selectSql, [user.username,user.password,user.mobile,user.isDelete], function (err, result) {
 		if (err) {
-			//console.dir(err);
-			//console.log('addUser err:' + err);
 			return callback(err);
 		}
-		//console.log('Add User success');
 		callback(err, result);
 	});
 };
-
-
+User.updatePassword= function (id,password, callback) {
+	var selectSql = 'UPDATE user SET password =? WHERE id=?';
+	db.query(selectSql, [password,id], function (err, result) {
+		if (err) {
+			return callback(err);
+		}
+		callback(err, result);
+	});
+};
 module.exports = User;

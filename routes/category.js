@@ -15,3 +15,6 @@ router.get("/queryProductDetail",function(req,res) {
       res.send(data);
     })
 });
+
+
+module.exports = router;
