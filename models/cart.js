@@ -28,18 +28,18 @@ Cart.updateCart = function (cart, callback) {
   });
 }
 Cart.deleteCart = function (id, callback) {
-  var idStr="";
-  for(var i=0;i<id.length;i++){
-     if(i==0){
-        idStr=idStr+id[i];
-     }
-     else{
-       idStr=idStr+","+id[i];
-     }
+  var idStr = "";
+  for (var i = 0; i < id.length; i++) {
+    if (i == 0) {
+      idStr = idStr + id[i];
+    }
+    else {
+      idStr = idStr + "," + id[i];
+    }
   }
-  
-  var delSql = "UPDATE cart SET isDelete =0 WHERE id in ("+idStr+")";
-  connection.query(delSql,function (err, res) {
+
+  var delSql = "UPDATE cart SET isDelete =0 WHERE id in (" + idStr + ")";
+  db.query(delSql, function (err, res) {
     if (err) {
       return callback(err);
     }
@@ -48,7 +48,16 @@ Cart.deleteCart = function (id, callback) {
 }
 Cart.queryCart = function (id, callback) {
   var delSql = 'SELECT c.id,c.productId,c.num,c.size,p.proName,p.price,p.pic from cart as c left join product as p on c.productId=p.id where c.userId=?';
-  connection.query(delSql, [id], function (err, res) {
+  db.query(delSql, [id], function (err, res) {
+    if (err) {
+      return callback(err);
+    }
+    callback(err, res);
+  });
+}
+Cart.countCart = function (id, callback) {
+  var delSql = 'SELECT c.id,c.productId,c.num,c.size,p.proName,p.price,p.pic from cart as c left join product as p on c.productId=p.id where c.userId=?';
+  db.query(delSql, [id], function (err, res) {
     if (err) {
       return callback(err);
     }

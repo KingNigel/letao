@@ -286,7 +286,38 @@ id |是|产品id
 + 示例
 
 ```javascript
-[{data},{data}]
+[
+  {
+    "id": 1,
+    "categoryName": "女装",
+    "isDelete": 1
+  },
+  {
+    "id": 2,
+    "categoryName": "男装",
+    "isDelete": 1
+  },
+  {
+    "id": 3,
+    "categoryName": "家电",
+    "isDelete": 1
+  },
+  {
+    "id": 4,
+    "categoryName": "家具",
+    "isDelete": 1
+  },
+  {
+    "id": 5,
+    "categoryName": "箱包",
+    "isDelete": 1
+  },
+  {
+    "id": 6,
+    "categoryName": "珠宝",
+    "isDelete": 1
+  }
+]
 ```
 ### 二级分类查询 querySecondCategory
 + 接口地址
@@ -310,7 +341,43 @@ id |是|一级分类id
 + 示例
 
 ```javascript
-{data}
+[
+  {
+    "id": 1,
+    "brandName": "耐克",
+    "categoryId": 1,
+    "brandLogo": "/pic/1.jpg",
+    "isDelete": 1
+  },
+  {
+    "id": 2,
+    "brandName": "阿迪",
+    "categoryId": 1,
+    "brandLogo": "/pic/2.jpg",
+    "isDelete": 1
+  },
+  {
+    "id": 3,
+    "brandName": "新百伦",
+    "categoryId": 1,
+    "brandLogo": "/pic/3.jpg",
+    "isDelete": 1
+  },
+  {
+    "id": 4,
+    "brandName": "哥伦比亚",
+    "categoryId": 1,
+    "brandLogo": "/pic/4.jpg",
+    "isDelete": 1
+  },
+  {
+    "id": 5,
+    "brandName": "匡威",
+    "categoryId": 1,
+    "brandLogo": "/pic/5.jpg",
+    "isDelete": 1
+  }
+]
 ```
 ### 购物车
 ### 添加购物车 addCart

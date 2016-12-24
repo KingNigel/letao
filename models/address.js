@@ -19,7 +19,7 @@ Address.addAddress = function (address, callback) {
 };
 Address.updateAddress = function (address, callback) {
   var delSql = 'UPDATE address SET address =?,addressDetail=? WHERE id=?';
-  connection.query(delSql, [address.address, address.address, address.id], function (err, res) {
+  connection.query(delSql, [address.address, address.addressDetail, address.id], function (err, res) {
     if (err) {
       return callback(err);
     }

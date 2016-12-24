@@ -47,6 +47,7 @@ router.post("/login", function (req, res) {
     if (result.password != password) return res.send({ "error": 403, "message": "密码错误！" });
     
     req.session.user = result;
+    console.log(req.session.user);
     res.send({ "success": true });
   });
 });
