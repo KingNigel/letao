@@ -526,42 +526,55 @@ id|是|地址id
 + 接口名称
   查询收货地址
 + 接口地址
-  /address/deleteAddress
+  /address/queryAddress
 + 请求方式
   GET
 + 参数说明
 参数名称|是否必须|说明
 --|--|--
-page|是|page 
-pageSize|是|pageSize 
 + 返回说明
 参数|说明
 --|--
 + 示例
 ```javascript
-[{data},{data}]
+[{
+    id: 1,
+    userId: 2,
+    address: '北京市海淀区',
+    addressDetail: '西三旗建材城西路',
+    isDelete: 1 },
+    {
+    id: 2,
+    userId: 2,
+    address: '天津市南开区',
+    addressDetail: '红旗南路',
+    isDelete: 1 
+}]
 ```
-### 查询收货地址 queryAddressTree
-
+### queryAddressTree
++ 接口名称
+  查询收货地址
 + 接口地址
-
    /address/queryAddressTree
-
 + 请求方式
-
-  get
-    
+  GET
 + 参数说明
-
 参数名称|是否必须|说明
 --|--|--
-
 + 返回说明
-
 参数|说明
 --|--
 + 示例
-
 ```javascript
-[{data},{data}]
+[{
+  "id": 1, "areaName": "北京", "child": [
+   { "id": 11, "areaName": "东城区", "child": [{ "id": 111, "areaName": "安定门街道" }, { "id": 112, "areaName": "建国门街道" }] },
+   { "id": 12, "areaName": "西城区", "child": [{ "id": 121, "areaName": "德外街道" }, { "id": 122, "areaName": "金融街" }] },
+   { "id": 13, "areaName": "朝阳区", "child": [{ "id": 131, "areaName": "朝外街道" }, { "id": 132, "areaName": "劲松街道" }] }]
+  }, {
+   "id": 2, "areaName": "天津", "child": [
+     { "id": 21, "areaName": "和平区", "child": [{ "id": 211, "areaName": "南市街道" }, { "id": 212, "areaName": "新兴街道" }] },
+     { "id": 22, "areaName": "南开区", "child": [{ "id": 221, "areaName": "八里台街" }, { "id": 222, "areaName": "王顶堤街" }] },
+     { "id": 23, "areaName": "红桥区", "child": [{ "id": 231, "areaName": "西于庄街道" }, { "id": 232, "areaName": "双环村街道" }] }]
+}]
 ```

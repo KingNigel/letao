@@ -30,9 +30,8 @@
        'success':function(data){
          console.log(data);
         $.ajax({
-          'url':"/cart/queryCart",
+          'url':"/address/queryAddressTree",
           'type':"GET",
-           'data': { "page": 1, "pageSize": 1 },
           'dataType':'json',
           'success':function(data){
           console.log(data);

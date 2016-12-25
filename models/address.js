@@ -18,8 +18,8 @@ Address.addAddress = function (address, callback) {
   });
 };
 Address.updateAddress = function (address, callback) {
-  var delSql = 'UPDATE address SET address =?,addressDetail=? WHERE id=?';
-  connection.query(delSql, [address.address, address.addressDetail, address.id], function (err, res) {
+  var selectSql = 'UPDATE address SET address =?,addressDetail=? WHERE id=?';
+  db.query(selectSql, [address.address, address.addressDetail, address.id], function (err, res) {
     if (err) {
       return callback(err);
     }
@@ -28,7 +28,7 @@ Address.updateAddress = function (address, callback) {
 }
 Address.deleteAddress = function (id, callback) {
   var delSql = "UPDATE cart SET isDelete =0 WHERE id =?";
-  connection.query(delSql,function (err, res) {
+  db.query(delSql,function (err, res) {
     if (err) {
       return callback(err);
     }
@@ -36,8 +36,8 @@ Address.deleteAddress = function (id, callback) {
   });
 }
 Address.queryAddress = function (userId, callback) {
-  var delSql = 'SELECT * FROM address WHERE userId=? AND isDelete=1';
-  connection.query(delSql, [userId], function (err, res) {
+  var selectSql = 'SELECT * FROM address WHERE userId=? AND isDelete=1';
+  db.query(selectSql, [userId], function (err, res) {
     if (err) {
       return callback(err);
     }
