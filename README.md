@@ -46,7 +46,7 @@
 
 - [产品新增](#addProduct)  
 - [产品修改](#updateProduct) 
-- [产品详情](#queryProductDetail)
+- [产品详情](#queryProductDetailList)
 
 ###分类模块
 
@@ -578,3 +578,164 @@ id|是|地址id
      { "id": 23, "areaName": "红桥区", "child": [{ "id": 231, "areaName": "西于庄街道" }, { "id": 232, "areaName": "双环村街道" }] }]
 }]
 ```
+
+
+#网站后台接口描述信息
+##员工模块
+### employeeLogin
++ 接口名称
+  登录接口
++ 接口地址
+   /employee/employeeLogin
++ 请求方式
+    POST
++ 参数说明
+参数名称|是否必须|说明
+--|--|--
+username|是|用户名
+password|是|用户密码
++ 示例
+```javascript
+{"username":"root","password","123456"}
+```
++ 返回说明
+参数|说明
+--|--
+success|注册状态
+error|操作失败
++ 示例
+```javascript
+//success
+{"success":true}
+//error 同上个接口
+```
+
+### employeeLogout
++ 接口名称
+  登出接口
++ 接口地址
+  /employee/employeeLogout
++ 请求方式
+  GET
++ 参数说明
+  无
++ 返回说明
+参数|说明
+--|--
+success|注册状态
+error|操作失败
++ 示例
+```javascript
+//success
+{"success":true}
+```
+ 
+##产品模块    
+### addProduct
++ 接口名称
+  产品新增
++ 接口地址
+  /product/addProduct
++ 请求方式
+  POST
++ 参数说明
+参数名称|是否必须|说明
+--|--|--
+proId|是|产品id
+proName|是|产品名称
+oldPrice|是|老价格
+price|是|价格
+pic|是|图片地址
+proDesc|是|产品描述
+size|是|产品尺寸
+statu|是|产品上下架
+num|是|用户库存
+brandId|是|归属品牌
++ 返回说明
+参数|说明
+--|--
+success|注册状态
+error|操作失败
++ 示例
+```javascript
+//success
+{"success":true}
+```
+
+### updateProduct
++ 接口名称
+  产品修改
++ 接口地址
+  /product/updateProduct
++ 请求方式
+  POST
++ 参数说明
+参数名称|是否必须|说明
+--|--|--
+proId|是|产品id
+proName|是|产品名称
+oldPrice|是|老价格
+price|是|价格
+pic|是|图片地址
+proDesc|是|产品描述
+size|是|产品尺寸
+statu|是|产品上下架
+num|是|用户库存
+brandId|是|归属品牌
++ 返回说明
+参数|说明
+--|--
+success|注册状态
+error|操作失败
++ 示例
+```javascript
+//success
+{"success":true}
+```
+### queryProductDetailList
++ 接口名称
+  产品列表查询
++ 接口地址
+  /product/queryProductDetailList
++ 请求方式
+  GET
++ 参数说明
+参数名称|是否必须|说明
+--|--|--
+page|是|页数
+pageSize|是|每页条数
+
++ 返回说明
+参数|说明
+--|--
+success|注册状态
+error|操作失败
++ 示例
+```javascript
+//success
+[{
+    "id": 1,
+    "proName": '羽绒服',
+    "oldPrice": 998,
+    "price": 600,
+    "pic": '/pic/1.jpg',
+    "proDesc": null,
+    "size": '170-195',
+    "statu": 1,
+    "updateTime": 2012-12-01T04:05:23.000Z,
+    "num": 1,
+    "brandId": 1 },
+   {
+    "id": 2,
+    "proName": '羽绒服',
+    "oldPrice": 998,
+    "price": 599,
+    "pic": '非常厚实~~~漂漂亮亮~~~',
+    "proDesc": '/pic/1.jpg',
+    "size": '170-195',
+    "statu": 1,
+    "updateTime": 2012-12-01T04:05:23.000Z,
+    "num": 2,
+    "brandId": 1 } ]
+```
+##分类模块
