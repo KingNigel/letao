@@ -25,7 +25,7 @@ router.post("/updateAddress", function (req, res) {
         res.send({ "success": true });
     })
 });
-router.get("/deleteAddress", function (req, res) {
+router.post("/deleteAddress", function (req, res) {
     Address.deleteAddress(req.query.id, function (err, data) {
         if (err) return res.send({ "error": 403, "message": "数据库异常！" });
         res.send({ "success": true });

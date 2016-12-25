@@ -46,9 +46,11 @@ Cart.deleteCart = function (id, callback) {
     callback(err, res);
   });
 }
-Cart.queryCart = function (id, callback) {
-  var delSql = 'SELECT c.id,c.productId,c.num,c.size,p.proName,p.price,p.pic from cart as c left join product as p on c.productId=p.id where c.userId=?';
-  db.query(delSql, [id], function (err, res) {
+Cart.queryCart = function (id, page, callback) {
+  var selectSql = 'SELECT c.id,c.productId,c.num,c.size,p.proName,p.price,p.pic from cart as c left join product as p on c.productId=p.id where c.userId=?';
+
+  selectSql +=" LIMIT ?,?";
+  db.query(selectSql, [id, (page.page - 1) * page.size, page.size],function (err, res) {
     if (err) {
       return callback(err);
     }
@@ -56,12 +58,12 @@ Cart.queryCart = function (id, callback) {
   });
 }
 Cart.countCart = function (id, callback) {
-  var delSql = 'SELECT c.id,c.productId,c.num,c.size,p.proName,p.price,p.pic from cart as c left join product as p on c.productId=p.id where c.userId=?';
+  var delSql = 'SELECT count(c.id) as count from cart as c left join product as p on c.productId=p.id where c.userId=?';
   db.query(delSql, [id], function (err, res) {
     if (err) {
       return callback(err);
     }
-    callback(err, res);
+    callback(err, res[0]);
   });
 }
 module.exports = Cart;

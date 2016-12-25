@@ -228,27 +228,21 @@ pageSize|是|每页的条数
 }
 ```
 
-### 产品详情 queryProductDetail
+### queryProductDetail
++ 接口名称
+  产品详情
 + 接口地址
-
-   /product/queryProductDetail
-
+  /product/queryProductDetail
 + 请求方式
-
-  get
-    
+  GET  
 + 参数说明
-
 参数名称|是否必须|说明
 --|--|--
 id |是|产品id
-
 + 返回说明
-
 参数|说明
 --|--
 + 示例
-
 ```javascript
 {
   "id": 1,
@@ -264,27 +258,22 @@ id |是|产品id
   "brandId": 1
 }
 ```
+
 ### 分类模块
-### 一级分类查询 queryTopCategory
+### queryTopCategory
++ 接口名称
+  一级分类查询
 + 接口地址
-
    /category/queryTopCategory
-
 + 请求方式
-
-  get
-    
+  GET
 + 参数说明
-
 参数名称|是否必须|说明
 --|--|--
-
 + 返回说明
-
 参数|说明
 --|--
 + 示例
-
 ```javascript
 [
   {
@@ -319,27 +308,21 @@ id |是|产品id
   }
 ]
 ```
-### 二级分类查询 querySecondCategory
+### querySecondCategory
++ 接口名称
+  二级分类查询
 + 接口地址
-
    /category/querySecondCategory
-
 + 请求方式
-
-  get
-    
+  GET
 + 参数说明
-
 参数名称|是否必须|说明
 --|--|--
 id |是|一级分类id
-
 + 返回说明
-
 参数|说明
 --|--
 + 示例
-
 ```javascript
 [
   {
@@ -380,98 +363,62 @@ id |是|一级分类id
 ]
 ```
 ### 购物车
-### 添加购物车 addCart
+### addCart
++ 接口名称
+  添加购物车
 + 接口地址
-
    /cart/addCart
-
 + 请求方式
-
-  post
-    
+  POST
 + 参数说明
-
 参数名称|是否必须|说明
 --|--|--
 productId |是|产品id
-
+num|是|产品数量
+size|是|产品尺码
 + 返回说明
-
 参数|说明
 --|--
 + 示例
-
 ```javascript
-[{data},{data}]
+{ "success": true }
 ```
-### 修改购物车 updateCart
+### updateCart
++ 接口名称
+  修改购物车
 + 接口地址
-
    /cart/updateCart
-
 + 请求方式
-
-  post
-    
+  POST
 + 参数说明
-
 参数名称|是否必须|说明
 --|--|--
-productId |是|产品id
+id|是|购物车数据id
 size      |是|产品尺码
 num      |是|产品数量
-
 + 返回说明
-
 参数|说明
 --|--
 + 示例
-
 ```javascript
 {"success":true}
 ```
-### 修改购物车 updateCart
+
+### deleteCart
++ 接口名称
+  删除购物车
 + 接口地址
-
-   /cart/updateCart
-
-+ 请求方式
-
-  post
-    
-+ 参数说明
-
-参数名称|是否必须|说明
---|--|--
-cartId    |是|购物id
-productId |是|产品id
-size      |是|产品尺码
-num       |是|产品数量
-
-+ 返回说明
-
-参数|说明
---|--
-+ 示例
-
-```javascript
-{"success":true}
-```
-### 删除购物车 deleteCart
-+ 接口地址
-
    /cart/deleteCart
-
 + 请求方式
-
-  get
-    
+  POST
 + 参数说明
-
 参数名称|是否必须|说明
 --|--|--
-cartId    |是|购物id 数组
-
+id    |是|购物车id 数组
++ 示例
+```javascript
+{"id":[1,2,3]}
+```
 + 返回说明
 
 参数|说明
@@ -481,140 +428,116 @@ cartId    |是|购物id 数组
 ```javascript
 {"success":true}
 ```
-### 查询购物车 queryCart
+### queryCart
++ 接口名称
+  查询购物车
 + 接口地址
-
    /cart/queryCart
-
 + 请求方式
-
-  get
-    
+  GET
 + 参数说明
-
 参数名称|是否必须|说明
 --|--|--
 page  |是|页数
 pageSize  |是|每页条数
-
 + 返回说明
-
 参数|说明
 --|--
 + 示例
-
 ```javascript
-{"success":true}
+{
+  "page": 1,
+  "size": 1,
+  "count": 2,
+  "data":
+   [ {
+       "id": 1,
+       "productId": 1,
+       "num": 2,
+       "size": '1',
+       "proName": '羽绒服',
+       "price": 600,
+       "pic": '/pic/1.jpg' } ]
+   }
 ```
 ###收货地址
-
-### 添加收货地址 addAddress
-
+### addAddress
++ 接口名称
+  添加收货地址
 + 接口地址
-
-   /address/addAddress
-
+  /address/addAddress
 + 请求方式
-
-  post
-    
+  POST
 + 参数说明
-
 参数名称|是否必须|说明
 --|--|--
 id  字段id 
 userId  与user 表关联
 address  三级联动地址
 addressDetail  详细地址
-isDelete 是否为默认地址  1 位默认地址.
-
 + 返回说明
-
 参数|说明
 --|--
 + 示例
-
 ```javascript
 {"success":true}
 ```
-### 修改收货地址 updateAddress
-
+### updateAddress
++ 接口名称
+  修改收货地址
 + 接口地址
-
    /address/updateAddress
-
 + 请求方式
-
-  post
-    
+  POST
 + 参数说明
-
 参数名称|是否必须|说明
 --|--|--
 id  字段id 
 userId  与user 表关联
 address  三级联动地址
 addressDetail  详细地址
-isDelete 是否为默认地址  1 位默认地址.
-
 + 返回说明
-
 参数|说明
 --|--
 + 示例
-
 ```javascript
 {"success":true}
 ```
 
-### 删除收货地址 deleteAddress
-
+###  deleteAddress
++ 接口名称
+  删除收货地址
 + 接口地址
-
    /address/deleteAddress
-
 + 请求方式
-
-  get
-    
+  POST
 + 参数说明
-
 参数名称|是否必须|说明
 --|--|--
 id|是|地址id 
-
 + 返回说明
-
 参数|说明
 --|--
 + 示例
-
 ```javascript
 {"success":true}
 ```
-### 查询收货地址 queryAddress
-
+### queryAddress
++ 接口名称
+  查询收货地址
 + 接口地址
-
-   /address/deleteAddress
-
+  /address/deleteAddress
 + 请求方式
-
-  get
-    
+  GET
 + 参数说明
-
 参数名称|是否必须|说明
 --|--|--
 page|是|page 
 pageSize|是|pageSize 
-
 + 返回说明
-
 参数|说明
 --|--
 + 示例
-
 ```javascript
 [{data},{data}]
 ```
