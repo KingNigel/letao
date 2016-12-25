@@ -739,3 +739,245 @@ error|操作失败
     "brandId": 1 } ]
 ```
 ##分类模块
+### addTopCategory
++ 接口名称
+  产品修改
++ 接口地址
+  /category/addTopCategory
++ 请求方式
+  POST
++ 参数说明
+参数名称|是否必须|说明
+--|--|--
+categoryName|是|分类名称
++ 返回说明
+参数|说明
+--|--
+success|注册状态
+error|操作失败
++ 示例
+```javascript
+//success
+{"success":true}
+```
+### updateTopCategory
++ 接口名称
+  产品修改
++ 接口地址
+  /category/addTopCategory
++ 请求方式
+  POST
++ 参数说明
+参数名称|是否必须|说明
+--|--|--
+id|是|分类id
+categoryName|是|分类名称
+isDelete|是|是否启用
++ 返回说明
+参数|说明
+--|--
+success|注册状态
+error|操作失败
++ 示例
+```javascript
+//success
+{"success":true}
+```
+### queryTopCategoryPaging
++ 接口名称
+  产品修改
++ 接口地址
+  /category/queryTopCategoryPaging
++ 请求方式
+  GET
++ 参数说明
+参数名称|是否必须|说明
+--|--|--
++ 返回说明
+参数|说明
+--|--
+success|注册状态
+error|操作失败
++ 示例
+```javascript
+[
+  {
+    "id": 1,
+    "categoryName": "女装",
+    "isDelete": 1
+  },
+  {
+    "id": 2,
+    "categoryName": "男装",
+    "isDelete": 1
+  },
+  {
+    "id": 3,
+    "categoryName": "家电",
+    "isDelete": 1
+  },
+  {
+    "id": 4,
+    "categoryName": "家具",
+    "isDelete": 1
+  },
+  {
+    "id": 5,
+    "categoryName": "箱包",
+    "isDelete": 1
+  },
+  {
+    "id": 6,
+    "categoryName": "珠宝",
+    "isDelete": 1
+  }
+]
+```
+### addSecondCategory
++ 接口名称
+  产品修改
++ 接口地址
+  /category/addSecondCategory
++ 请求方式
+  POST
++ 参数说明
+参数名称|是否必须|说明
+--|--|--
+brandName|是|品牌名称
+categoryId|是|所属分类id
+brandLogo|是|品牌logo图片地址
++ 返回说明
+参数|说明
+--|--
+success|注册状态
+error|操作失败
++ 示例
+```javascript
+//success
+{"success":true}
+```
+### updateSecondCategory
++ 接口名称
+  产品修改
++ 接口地址
+  /category/updateSecondCategory
++ 请求方式
+  POST
++ 参数说明
+参数名称|是否必须|说明
+--|--|--
+id|是|品牌id
+brandName|是|品牌名称
+categoryId|是|所属分类id
+brandLogo|是|品牌logo图片地址
+isDelete|是|是否启用
++ 返回说明
+参数|说明
+--|--
+success|注册状态
+error|操作失败
++ 示例
+```javascript
+//success
+{"success":true}
+```
+### querySecondCategoryPaging
++ 接口名称
+  产品修改
++ 接口地址
+  /category/querySecondCategoryPaging
++ 请求方式
+  GET
++ 参数说明
+参数名称|是否必须|说明
+--|--|--
++ 返回说明
+参数|说明
+--|--
+success|注册状态
+error|操作失败
++ 示例
+```javascript
+[
+  {
+    "id": 1,
+    "brandName": "耐克",
+    "categoryId": 1,
+    "brandLogo": "/pic/1.jpg",
+    "isDelete": 1
+  },
+  {
+    "id": 2,
+    "brandName": "阿迪",
+    "categoryId": 1,
+    "brandLogo": "/pic/2.jpg",
+    "isDelete": 1
+  },
+  {
+    "id": 3,
+    "brandName": "新百伦",
+    "categoryId": 1,
+    "brandLogo": "/pic/3.jpg",
+    "isDelete": 1
+  },
+  {
+    "id": 4,
+    "brandName": "哥伦比亚",
+    "categoryId": 1,
+    "brandLogo": "/pic/4.jpg",
+    "isDelete": 1
+  },
+  {
+    "id": 5,
+    "brandName": "匡威",
+    "categoryId": 1,
+    "brandLogo": "/pic/5.jpg",
+    "isDelete": 1
+  }
+]
+```
+
+### queryUser
++ 接口名称
+  产品修改
++ 接口地址
+  /user/queryUser
++ 请求方式
+  GET
++ 参数说明
+参数名称|是否必须|说明
+--|--|--
+page|是|页码
+pageSize|是|每页条数
++ 返回说明
+参数|说明
+--|--
+success|注册状态
+error|操作失败
++ 示例
+```javascript
+//success
+{"success":true}
+```
+### updateUser
++ 接口名称
+  产品修改
++ 接口地址
+  /user/updateUser
++ 请求方式
+  POST
++ 参数说明
+参数名称|是否必须|说明
+--|--|--
+id|是|用户id
+isDelete|是|是否启停
++ 返回说明
+参数|说明
+--|--
+success|注册状态
+error|操作失败
++ 示例
+```javascript
+//success
+{"success":true}
+```
